@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>TheGossipProject</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" <%= link_to "The Gossip Project", gossips_path %>></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <%= link_to "Liste des Gossips", gossips_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Créer un gossip", new_gossip_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "S'inscrire", new_user_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Login", new_session_path, class: "nav-link" %>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+          <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="jumbotron">
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
